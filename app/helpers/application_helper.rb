@@ -15,4 +15,16 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def notice1
+    render 'layouts/noticep' if notice.present?
+  end
+
+  def alert1
+    render 'layouts/alertp' if alert.present?
+  end
+
+  def devisemap(variable)
+    render partial: 'layouts/devise', locals: { variable1: variable } if devise_mapping.rememberable?
+  end
 end
