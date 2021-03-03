@@ -27,4 +27,12 @@ module ApplicationHelper
   def devisemap(variable)
     render partial: 'layouts/devise', locals: { variable1: variable } if devise_mapping.rememberable?
   end
+
+  def current_user1
+    if current_user
+      render 'layouts/currentpartial'
+    else
+      render 'layouts/noncurrentpartial'
+    end
+  end
 end
