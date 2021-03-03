@@ -1,9 +1,7 @@
 <section class="user-section">
     <div style="display: flex; justify-content: space-between">
         <h2><%= "Name: #{@user.name}" %></h2>
-        <button class="btn btn-secondary">
-            <%= link_to 'Send Request'  %>
-        </button>
+        <%= link_to 'Send Request',  class: 'profile-link'  %>
     </div>
     <article class="timeline">
         <h3>Recent posts:</h3>

@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
@@ -16,6 +17,11 @@
             <div class="menu-item">
                 <%= menu_link_to 'Timeline', posts_path %>
             </div>
+            <div class="menu-item">
+                <!-- Add if statement here so the look changes if there is a request> -->
+                <%= link_to 'Friend Requests', users_path %>
+            </div>
+
             <div class="menu-item">
                 <%= menu_link_to 'All users', users_path %>
             </div>
