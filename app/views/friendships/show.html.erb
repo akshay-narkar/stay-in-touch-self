@@ -1,0 +1,35 @@
+<h2>Requests</h2>
+<table class="table container table-sm ">
+    <thead class='thead-dark'>
+
+        <tr>
+            <th>Name</th>
+            <th>Accept</th>
+            <th>Decline</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <% @awaitng.each do |f| %>
+            <td><%= (User.find_by_id(f.friend_id)).name %> </td>
+
+
+            <td>
+                <button class="btn btn-success">
+                    <%= link_to "Accept",friendship_path(f.id,status:true),method: :patch , style: "text-decoration: none; color: white" %>
+                </button>
+            </td>
+
+
+            <td>
+                <button class="btn btn-danger">
+                    <%= link_to "Decline",friendship_path(f.id),method: :delete, style: "text-decoration: none; color: white" %>
+                </button>
+            </td>
+
+
+            <%end%>
+        </tr>
+    </tbody>
+</table>
