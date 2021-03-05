@@ -35,4 +35,12 @@ module ApplicationHelper
       render 'layouts/noncurrentpartial'
     end
   end
+
+  def checkfriend(user)
+    if current_user.id == user.id
+
+    else
+      render partial: 'friendships/onshowrequest', locals: {user: user}
+    end
+  end
 end
