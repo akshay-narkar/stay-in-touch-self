@@ -36,11 +36,23 @@ module ApplicationHelper
     end
   end
 
-  def checkfriend(user)
-    if current_user.id == user.id
+  def checkfriend(user, show = nil)
+    return 'Yourself' if (current_user.id == user.id) and show == 'show'
+    return if (current_user.id == user.id) and show.nil?
 
+    friendobject = Friendship.new
+
+    awaiting = friendobject.await(current_user, user)
+    render 'friendships/awaiting' if awaiting
+
+    if friendobject.friendss(current_user,user)
+      render 'friendships/friends'
     else
-      render partial: 'friendships/onshowrequest', locals: {user: user}
+      render partial: 'friendships/onshowrequest', locals: { user: user }
     end
+  end
+
+  def checkusercurrent
+    render 'layouts/showinnav' if current_user
   end
 end
