@@ -18,10 +18,7 @@
                 <%= menu_link_to 'Timeline', posts_path %>
             </div>
             <div class="menu-item">
-                <%if current_user%>
-                <!-- Add if statement here so the look changes if there is a request> -->
-                <%= link_to 'Friend Requests', friendship_path(current_user.id) %>
-                <%end%>
+                <%= checkusercurrent%>
             </div>
 
             <div class="menu-item">

@@ -1,8 +1,13 @@
-<li>
-    Name: <%= user.name %>
-    <span class="profile-link">
-        <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-
-        <%= link_to 'Send Request',  class: 'profile-link' %>
-    </span>
-</li>
+<table class="table text-center">
+    <tbody>
+        <tr>
+            <td style='padding: 25px; word-wrap:break-word;width:200px'> Name: <%= user.name %> </td>
+            <td style='padding: 25px; word-wrap:break-word;width:200px'>
+                <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+            </td>
+            <td style='padding: 25px; word-wrap:break-word;width:200px'>
+                <%=checkfriend(user,"show")%>
+            </td>
+        </tr>
+    </tbody>
+</table>
