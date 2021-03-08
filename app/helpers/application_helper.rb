@@ -1,5 +1,4 @@
 module ApplicationHelper
-      
   def menu_link_to(link_text, link_path)
     class_name = current_page?(link_path) ? 'menu-item active' : 'menu-item'
 
@@ -43,18 +42,17 @@ module ApplicationHelper
 
     friendobject = Friendship.new
 
-    awaiting = friendobject.await(current_user, user)
-    render 'friendships/awaiting' if awaiting
-
-    if friendobject.friendss(current_user, user)
-      render 'friendships/friends'
+    if friendobject.await(current_user, user)
+      render partial: 'friendships/awaiting'
+    elsif friendobject.friendss(current_user, user)
+      render partial: 'friendships/friends'
     else
       render partial: 'friendships/onshowrequest', locals: { user: user }
     end
   end
 
   def checkusercurrent
-     return unless current_user
+    return unless current_user
 
     friendobject = Friendship.new
     count = friendobject.pendingreq(current_user) if current_user
