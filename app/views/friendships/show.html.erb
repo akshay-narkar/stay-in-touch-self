@@ -9,9 +9,10 @@
     </thead>
 
     <tbody>
+        <% @awaitng.each do |f| %>
         <tr>
-            <% @awaitng.each do |f| %>
-            <td><%= (User.find_by_id(f.friend_id)).name %> </td>
+
+            <td><%= (User.find_by_id(f.user_id)).name %> </td>
 
 
             <td>
@@ -27,8 +28,8 @@
                 </button>
             </td>
 
-
-            <%end%>
         </tr>
+
+        <%end%>
     </tbody>
 </table>
