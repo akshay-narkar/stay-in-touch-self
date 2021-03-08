@@ -54,13 +54,14 @@ module ApplicationHelper
   end
 
   def checkusercurrent
-    friendobject = Friendship.new
+     return unless current_user
 
-    count = friendobject.pendingreq(current_user)
-   if current_user && count.count.positive? 
-     render partial: 'layouts/showinnavbut', locals: {count: count} 
-   elsif current_user
-     render partial: 'layouts/showinnav'
-   end
+    friendobject = Friendship.new
+    count = friendobject.pendingreq(current_user) if current_user
+    if count.count.positive?
+      render partial: 'layouts/showinnavbut', locals: { count: count }
+    else
+      render partial: 'layouts/showinnav'
+    end
   end
 end
