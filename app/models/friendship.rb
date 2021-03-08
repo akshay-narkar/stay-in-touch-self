@@ -35,4 +35,8 @@ class Friendship < ApplicationRecord
                                                                                                          user.id))
       .or(Friendship.where('user_id = ?', current_user.id)).friendlist
   end
+
+  def pendingreq(currentuser)
+      Friendship.where('friend_id = ?', currentuser.id).waiting
+  end
 end
