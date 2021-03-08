@@ -6,11 +6,11 @@ module PostHelper
   end
 
   def posthelper(currentuser, post, friendobject)
-    if currentuser == post.user
-      render partial: 'posts/friendspost', locals: { post: post }
+    return unless currentuser == post.user or friendobject.friendss(currentuser, post.user)
 
-    elsif friendobject.friendss(currentuser, post.user)
-      render partial: 'posts/friendspost', locals: { post: post }
-    end
+    render partial: 'posts/friendspost', locals: { post: post }
+
+    # elsif friendobject.friendss(currentuser, post.user).nil?
+    #   render partial: 'posts/friendspost', locals: { post: post }
   end
 end
