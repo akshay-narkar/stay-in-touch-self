@@ -2,6 +2,8 @@ class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: :User
   validates_uniqueness_of :user, scope: %i[friend]
+  validates_uniqueness_of :friend, scope: %i[user]
+
   # scope :past, -> { where('eventdate <=  ?', current_user.id) }
   # scope :friendlist, lambda {
   #                      where('user_id > ?', current_user.id).or(where('friend_id > ?', current_user.id))
