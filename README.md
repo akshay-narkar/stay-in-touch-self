@@ -73,11 +73,6 @@ TBA
 
 👤 **Author1**
 
-- GitHub: [@ggotora](https://github.com/ggotora)
-- Twitter: [Gotora Gilbert](https://www.twitter.com/gotora_gilbert)
-
-👤 **Author2**
-
 - Github: [@akshay-narkar](https://github.com/akshay-narkar)
 - Twitter: [Akshay](https://www.twitter.com/akidoit)
 
