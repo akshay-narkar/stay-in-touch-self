@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RorSocialScaffold</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+    <nav class="nav">
+        <%= link_to 'Stay in touch', root_path %>
+        <div class="menu">
+            <div class="menu-item">
+                <%= menu_link_to 'Timeline', posts_path %>
+            </div>
+            <div class="menu-item">
+                <%= checkusercurrent%>
+            </div>
+
+            <div class="menu-item">
+                <%= menu_link_to 'All users', users_path %>
+            </div>
+        </div>
+        <%=current_user1%>
+
+    </nav>
+
+    <%=notice1%>
+
+    <%=alert1%>
+
+    <main class="main">
+        <%= yield %>
+    </main>
+</body>
+
+</html>
