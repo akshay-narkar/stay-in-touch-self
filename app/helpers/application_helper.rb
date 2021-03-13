@@ -36,10 +36,14 @@ module ApplicationHelper
     end
   end
 
-  def checkfriend(user, show = nil)
+  def checkfriend1(user, show = nil)
     return 'Yourself' if (current_user.id == user.id) and show == 'show'
     return if (current_user.id == user.id) and show.nil?
 
+    checkfriend(user)
+  end
+
+  def checkfriend(user)
     friendobject = Friendship.new
 
     if friendobject.await(current_user, user)

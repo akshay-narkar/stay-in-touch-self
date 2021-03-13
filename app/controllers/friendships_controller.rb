@@ -5,15 +5,13 @@ class FriendshipsController < ApplicationController
       redirect_to root_path, notice: 'Friend Request Sent'
     else
       redirect_to root_path, alert: 'Request Already sent'
-      # can change display of sent request if already sent
     end
   end
 
   def new; end
 
   def show
-    @waitingfriendships = current_user.friendships.waiting
-    @awaitng = Friendship.where('friend_id = ?', current_user.id).waiting
+    @awaitng = current_user.requests_received
   end
 
   def destroy

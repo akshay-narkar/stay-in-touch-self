@@ -20,8 +20,6 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    # friendobject = Friendship.new
-    # postsbyfriends = friendobject.friendpost(current_user)
     @timeline_posts ||= Post.all.ordered_by_most_recent.includes(:user)
   end
 
